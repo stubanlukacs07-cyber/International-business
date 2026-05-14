@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>International Business Management — Course Repository · Spring 2026</title>
+<meta name="description" content="Course materials, seminar worksheets, frameworks and final presentation brief for International Business Management at BGE, Spring Semester 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@200..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E7;
+    --paper-2:#EFE7D6;
+    --ink:#0F1B2D;
+    --ink-2:#23314A;
+    --muted:#5C6478;
+    --line:#1f2a3e26;
+    --line-strong:#1f2a3e80;
+    --accent:#B5361E;        /* burnt sienna */
+    --accent-2:#1B3A2F;      /* deep forest */
+    --gold:#A8862B;          /* muted gold */
+    --card:#FFFCF5;
+    --shadow: 0 1px 0 #1f2a3e0c, 0 24px 48px -28px #0f1b2d33, 0 8px 16px -12px #0f1b2d1f;
+    --radius: 14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Outfit", system-ui, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    background-image:
+      radial-gradient(1200px 600px at 110% -10%, #B5361E14, transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, #1B3A2F12, transparent 60%);
+  }
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:72px 0 36px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:auto -10% -40% auto;
+    width:520px; height:520px;
+    background:
+      radial-gradient(closest-side, #B5361E22, transparent 70%);
+    pointer-events:none;
+  }
+  .crumbs{
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:24px;
+  }
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block}
+  .institution{color:var(--ink-2)}
+  h1.title{
+    font-family:"Fraunces", serif;
+    font-weight:400;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+    font-size: clamp(46px, 7.2vw, 96px);
+    line-height:.95;
+    letter-spacing:-0.02em;
+    margin:0 0 18px;
+  }
+  h1.title em{
+    font-style:italic;
+    color:var(--accent);
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+  }
+  .lede{
+    max-width:760px;
+    font-size:clamp(16px,1.6vw,20px);
+    line-height:1.55;
+    color:var(--ink-2);
+    margin:0 0 32px;
+  }
+  .meta-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:18px;
+    margin-top:36px;
+    padding:22px 0 4px;
+    border-top:1px dashed var(--line-strong);
+  }
+  .meta-grid h4{
+    margin:0 0 6px;
+    font-family:"JetBrains Mono", monospace;
+    font-weight:500;
+    font-size:10.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .meta-grid p{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.45}
+  @media (max-width:760px){ .meta-grid{grid-template-columns:repeat(2,1fr)} }
+
+  /* ---------- TOC ---------- */
+  .toc{
+    margin:48px 0 12px;
+    padding:24px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+  .toc h3{
+    margin:0 0 14px;
+    font-family:"JetBrains Mono", monospace;
+    font-weight:500;
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .toc ol{
+    list-style:none;margin:0;padding:0;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:2px 28px;
+    counter-reset: toc;
+  }
+  @media (max-width:720px){.toc ol{grid-template-columns:1fr}}
+  .toc li{
+    counter-increment: toc;
+    border-bottom:1px dashed var(--line);
+  }
+  .toc a{
+    display:flex;align-items:baseline;gap:14px;
+    padding:11px 0;
+    text-decoration:none;
+    font-size:15px;
+    color:var(--ink);
+    transition:color .15s, transform .15s;
+  }
+  .toc a::before{
+    content: counter(toc, decimal-leading-zero);
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;color:var(--accent);
+    letter-spacing:.1em;
+    flex:0 0 auto;
+  }
+  .toc a:hover{color:var(--accent); transform:translateX(2px)}
+  .toc a .arrow{margin-left:auto;color:var(--muted); font-family:"JetBrains Mono", monospace; font-size:13px}
+
+  /* ---------- SECTIONS ---------- */
+  section.unit{
+    padding:64px 0 28px;
+    border-top:1px solid var(--line);
+    scroll-margin-top:20px;
+  }
+  .unit-head{
+    display:grid;
+    grid-template-columns: 180px 1fr;
+    gap:36px;
+    margin-bottom:36px;
+    align-items:start;
+  }
+  @media (max-width:820px){ .unit-head{grid-template-columns:1fr; gap:14px} }
+  .unit-tag{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);
+    padding-top:14px;
+    border-top:2px solid var(--accent);
+    display:inline-block;
+  }
+  .unit-tag.green{ color:var(--accent-2); border-color:var(--accent-2)}
+  .unit-tag.gold{  color:var(--gold);     border-color:var(--gold)}
+  .unit-head h2{
+    margin:0 0 14px;
+    font-family:"Fraunces", serif;
+    font-weight:400;
+    font-variation-settings:"opsz" 144;
+    font-size:clamp(34px, 4.5vw, 54px);
+    line-height:1;
+    letter-spacing:-.015em;
+  }
+  .unit-head h2 em{
+    font-style:italic;
+    color:var(--accent);
+    font-variation-settings:"opsz" 144, "SOFT" 100;
+  }
+  .unit-head p.intro{
+    font-size:16.5px;
+    line-height:1.6;
+    color:var(--ink-2);
+    margin:0;
+    max-width:760px;
+  }
+  .unit-head .date{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);
+    margin-top:14px;
+  }
+
+  /* topic chips */
+  .topics{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 4px}
+  .topic{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;letter-spacing:.08em;
+    padding:5px 10px;
+    border:1px solid var(--line-strong);
+    border-radius:999px;
+    color:var(--ink-2);
+    background:#fff8;
+  }
+
+  /* ---------- CARDS ---------- */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+    gap:18px;
+    margin-top:8px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 22px 20px;
+    display:flex;flex-direction:column;
+    text-decoration:none;color:inherit;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    position:relative;overflow:hidden;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+    border-color:#1f2a3e40;
+  }
+  .card .badge{
+    align-self:flex-start;
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    padding:4px 8px;
+    border-radius:3px;
+    color:#fff;
+    background:var(--ink);
+    margin-bottom:14px;
+  }
+  .card .badge.pptx{ background:#B5361E }
+  .card .badge.docx{ background:#1B3A2F }
+  .card .badge.pdf{  background:#0F1B2D }
+  .card h4{
+    font-family:"Fraunces", serif;
+    font-weight:500;
+    font-variation-settings:"opsz" 24;
+    font-size:19px;
+    line-height:1.25;
+    letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  .card p{
+    font-size:13.5px;line-height:1.55;
+    color:var(--muted);
+    margin:0 0 16px;
+    flex:1;
+  }
+  .card .filename{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    color:var(--ink-2);
+    word-break:break-all;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+    display:flex;align-items:center;gap:8px;
+  }
+  .card .filename::before{content:"↗";color:var(--accent);font-size:13px}
+
+  /* highlight card for final presentation */
+  .card.highlight{
+    background:linear-gradient(180deg,#FFFCF5,#FBF2DD);
+    border-color:#B5361E55;
+  }
+  .card.highlight .badge{ background:var(--accent) }
+
+  .group-strip{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:12px;
+    margin-top:18px;
+  }
+  .group{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent-2);
+    border-radius:10px;
+    padding:14px 16px;
+  }
+  .group.you{
+    border-left-color:var(--accent);
+    background:#FBE9DF;
+    box-shadow:0 0 0 1px #B5361E33;
+  }
+  .group .gnum{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);
+  }
+  .group .ind{
+    font-family:"Fraunces", serif;
+    font-size:18px;
+    margin:2px 0 8px;
+    line-height:1.15;
+  }
+  .group ul{
+    margin:0;padding:0;list-style:none;
+    font-size:13px;color:var(--ink-2);
+    line-height:1.55;
+  }
+  .group ul li:has(strong){color:var(--accent);font-weight:600}
+
+  /* Industry table */
+  .indtable{
+    margin-top:22px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .indtable .row{
+    display:grid;grid-template-columns:60px 1fr;
+    padding:10px 16px;
+    border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .indtable .row:first-child{border-top:0}
+  .indtable .row .n{
+    font-family:"JetBrains Mono", monospace;
+    color:var(--muted);font-size:12px;
+  }
+  .indtable .row.you{ background:#FBE9DF; color:var(--ink); font-weight:600 }
+  .indtable .row.you .n{ color:var(--accent) }
+
+  /* slide-list */
+  details.slides{
+    margin-top:14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 16px;
+    background:#fff;
+  }
+  details.slides summary{
+    cursor:pointer; user-select:none;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);
+    padding:6px 0;
+  }
+  details.slides[open] summary{color:var(--accent)}
+  details.slides ul{margin:8px 0 14px;padding-left:18px;font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
+  /* footer */
+  footer{
+    margin-top:60px;
+    padding:40px 0 60px;
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg, transparent, #EFE7D680);
+  }
+  footer .fwrap{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;
+  }
+  @media (max-width:760px){ footer .fwrap{grid-template-columns:1fr} }
+  footer h5{
+    margin:0 0 10px;
+    font-family:"JetBrains Mono", monospace;
+    font-weight:500;
+    font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);
+  }
+  footer p, footer a{
+    font-size:14px;line-height:1.6;color:var(--ink-2);text-decoration:none;
+  }
+  footer a:hover{color:var(--accent)}
+  footer .sig{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <div class="crumbs">
+      <span class="institution">Budapest Business School · Faculty of International Management &amp; Business</span>
+      <span class="dot"></span>
+      <span>Spring Semester 2025/26</span>
+      <span class="dot"></span>
+      <span>BSc in International Business Economics</span>
+    </div>
+
+    <h1 class="title">International<br>Business <em>Management</em></h1>
+
+    <p class="lede">
+      Course repository for the spring semester — seminar worksheets, lecture slide decks,
+      analytical frameworks (PESTLE &amp; SWOT) and the end-of-course presentation brief, organised
+      by seminar so the whole semester is visible at a glance.
+    </p>
+
+    <div class="meta-grid">
+      <div>
+        <h4>Instructors</h4>
+        <p>Judit Galambos<br>David Parker</p>
+      </div>
+      <div>
+        <h4>Credits / Assessment</h4>
+        <p>3 credit points · Colloquium with offered grade · 110 pts total</p>
+      </div>
+      <div>
+        <h4>Contact hours</h4>
+        <p>6 lectures + 6 seminar classes</p>
+      </div>
+      <div>
+        <h4>Final deliverable</h4>
+        <p>Group presentation: PESTLE + SWOT + recommendation (3–5 min)</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== TOC ===================== -->
+  <nav class="toc" aria-label="Contents">
+    <h3>Index — Tartalom</h3>
+    <ol>
+      <li><a href="#seminar-1">Seminar 1 — Management Fundamentals <span class="arrow">→</span></a></li>
+      <li><a href="#seminar-2">Seminar 2 — Globalisation: Pros &amp; Cons <span class="arrow">→</span></a></li>
+      <li><a href="#innovation">Innovation Management Seminar <span class="arrow">→</span></a></li>
+      <li><a href="#pestle">PESTLE — Framework &amp; Practice <span class="arrow">→</span></a></li>
+      <li><a href="#swot">SWOT — Framework <span class="arrow">→</span></a></li>
+      <li><a href="#final">End-of-Course Presentation <span class="arrow">→</span></a></li>
+      <li><a href="#groups">Group Assignments <span class="arrow">→</span></a></li>
+      <li><a href="#textbook">Course Textbook <span class="arrow">→</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ===================== SEMINAR 1 ===================== -->
+  <section class="unit" id="seminar-1">
+    <div class="unit-head">
+      <div>
+        <span class="unit-tag">Seminar 01</span>
+        <div class="date">◆ 19 February 2026</div>
+      </div>
+      <div>
+        <h2>Management <em>fundamentals</em></h2>
+        <p class="intro">
+          Why should companies go international? Management versus leadership, and the role
+          of organisational culture. Includes the GoPro case study, Drucker’s five tasks of management,
+          Simon Sinek &amp; Seth Godin video tasks, and the Apple / Steve Jobs culture exercise.
+        </p>
+        <div class="topics">
+          <span class="topic">Going international</span>
+          <span class="topic">Management vs leadership</span>
+          <span class="topic">Drucker</span>
+          <span class="topic">Organisational culture</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="1_Seminar_slides_David.pptx" download>
+        <span class="badge pptx">Slides · pptx</span>
+        <h4>Seminar 1 — Lecture slides</h4>
+        <p>David Parker’s seminar deck: course roadmap, completion requirements, GoPro case study,
+           Drucker’s five tasks, Sinek &amp; Godin leadership tasks, Steve Jobs / Apple culture.</p>
+        <span class="filename">1_Seminar_slides_David.pptx</span>
+      </a>
+
+      <a class="card" href="Seminar%201%20work%20sheet%20STUDENT.docx" download>
+        <span class="badge docx">Worksheet · docx</span>
+        <h4>Seminar 1 — Student worksheet</h4>
+        <p>GoPro “Capturing the World” case study, eight comprehension questions, management
+           vs leadership discussion tasks, Drucker summary, and the Apple corporate-culture task.</p>
+        <span class="filename">Seminar 1 work sheet STUDENT.docx</span>
+      </a>
+    </div>
+
+    <details class="slides">
+      <summary>Slide deck overview — what’s inside the pptx</summary>
+      <ul>
+        <li>Course intro, roadmap, completion requirements (110 pts) &amp; grading</li>
+        <li>Agenda: why go international? · leadership vs management · organisational culture</li>
+        <li>Task 1 — GoPro case study (8 reading questions + extension)</li>
+        <li>Task 2 — Management discussion: born vs taught, what makes a good manager</li>
+        <li>Task 3 — Drucker’s five tasks (planning, organising, integrating, measuring, developing)</li>
+        <li>Task 4 — Simon Sinek: leader vs manager (comprehension questions)</li>
+        <li>Task 5 — Preparing technical experts for leadership roles</li>
+        <li>Task 6 — Seth Godin: leadership vs management (comprehension questions)</li>
+        <li>Task 7 — When is a manager preferable to a leader?</li>
+        <li>Task 8 — Steve Jobs &amp; the Apple corporate culture (2007 iPhone keynote)</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ===================== SEMINAR 2 ===================== -->
+  <section class="unit" id="seminar-2">
+    <div class="unit-head">
+      <div>
+        <span class="unit-tag green">Seminar 02</span>
+        <div class="date">◆ 05 March 2026</div>
+      </div>
+      <div>
+        <h2>Globalisation — <em>pros &amp; cons</em></h2>
+        <p class="intro">
+          What is globalisation and why does it happen? Benefits and risks for host countries,
+          using McDonald’s in Ireland, China’s globalisation video, South Korea’s “infant industry”
+          policy of 1963, and India’s 2025 steel safeguard tariff as anchoring cases.
+        </p>
+        <div class="topics">
+          <span class="topic">Global supply chains</span>
+          <span class="topic">FDI</span>
+          <span class="topic">Infant industry</span>
+          <span class="topic">Strategic industries</span>
+          <span class="topic">Tariffs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="2_Seminar%20%20slides.pptx" download>
+        <span class="badge pptx">Slides · pptx</span>
+        <h4>Seminar 2 — Lecture slides</h4>
+        <p>What is globalisation, drivers (economic, technological, political, financial, cultural),
+           global supply-chain task, McDonald’s reading, China benefits video, South Korea &amp; India cases.</p>
+        <span class="filename">2_Seminar  slides.pptx</span>
+      </a>
+
+      <a class="card" href="Seminar%202%20Student%20_%20McDonald.docx" download>
+        <span class="badge docx">Worksheet · docx</span>
+        <h4>Seminar 2 — McDonald’s worksheet</h4>
+        <p>McDonald’s €150 m Irish expansion reading + 8 questions and discussion; China video matrix;
+           South Korea 1963 import restrictions; India 2025 12 % steel safeguard duty.</p>
+        <span class="filename">Seminar 2 Student _ McDonald.docx</span>
+      </a>
+    </div>
+
+    <details class="slides">
+      <summary>Slide deck overview — what’s inside the pptx</summary>
+      <ul>
+        <li>Opener — pick a product, find out where it’s designed, made, who owns the brand</li>
+        <li>What is globalisation? Drivers: economic, technological, political, financial, cultural</li>
+        <li>Global supply chains task — smartphone / car / coffee / fast fashion</li>
+        <li>Reading task — McDonald’s 25 new Irish locations (€150 m / $175 m)</li>
+        <li>Video — China globalisation: benefits for China vs other countries (matrix)</li>
+        <li>Costs of globalisation — environmental (Romanian cyanide mining), cultural homogenisation, textile labour</li>
+        <li>Task 3 — South Korea 1963 import restrictions / infant industry</li>
+        <li>Task 4 — India 12 % steel safeguard tariff / strategic industry</li>
+        <li>Reflection exit task — most important benefit, most serious problem of globalisation</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ===================== INNOVATION ===================== -->
+  <section class="unit" id="innovation">
+    <div class="unit-head">
+      <div>
+        <span class="unit-tag gold">Seminar · Innovation</span>
+        <div class="date">◆ Innovation management module</div>
+      </div>
+      <div>
+        <h2>Innovation <em>management</em></h2>
+        <p class="intro">
+          Drivers of innovation (global challenges, market pressures), companies that failed to innovate
+          vs Fast Company’s most innovative of 2026, types of innovation (incremental → radical → transformational →
+          disruptive), prospect theory, and the categorisation task across four innovation types.
+        </p>
+        <div class="topics">
+          <span class="topic">Drivers of innovation</span>
+          <span class="topic">Incremental / Radical / Disruptive</span>
+          <span class="topic">Business-model innovation</span>
+          <span class="topic">Prospect theory</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="Innovation%20management%20seminar.pptx" download>
+        <span class="badge pptx">Slides · pptx</span>
+        <h4>Innovation management — slides</h4>
+        <p>David Parker’s deck: innovation drivers, “no longer with us” companies, innovative companies of 2026,
+           types of innovation, the £1 m / £4 m risk dilemma, prospect theory, and Apple (2007) reflection.</p>
+        <span class="filename">Innovation management seminar.pptx</span>
+      </a>
+
+      <a class="card" href="Seminar%207%20STUDENT%20copy%20Innovation.docx" download>
+        <span class="badge docx">Worksheet · docx</span>
+        <h4>Seminar 7 — Innovation worksheet</h4>
+        <p>Short cloze / gap-fill exercise on innovation as a cross-functional process, customer needs,
+           product development, and strategic long-term investment.</p>
+        <span class="filename">Seminar 7 STUDENT copy Innovation.docx</span>
+      </a>
+
+      <a class="card" href="7%20STUDENT%20Innovation%20Type%20catagorize%20task.docx" download>
+        <span class="badge docx">Categorisation task · docx</span>
+        <h4>Innovation-type matrix task</h4>
+        <p>Place 12 real examples (Calm/Headspace, Airbnb, Salesforce Einstein, Amazon FBA, SpaceX,
+           Windows, ServiceNow, Debut, Starbucks, Netflix, iOS/Android, Uber) into the 2×2 matrix:
+           incremental · business-model · radical · disruptive.</p>
+        <span class="filename">7 STUDENT Innovation Type catagorize task.docx</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== PESTLE ===================== -->
+  <section class="unit" id="pestle">
+    <div class="unit-head">
+      <div>
+        <span class="unit-tag">Framework</span>
+        <div class="date">◆ PESTLE analysis</div>
+      </div>
+      <div>
+        <h2>PESTLE — <em>practice pack</em></h2>
+        <p class="intro">
+          Political · Economic · Social · Technological · Legal · Environmental.
+          A complete practice pack: research guide, blank template, worked example,
+          a matching exercise, plus four real-world mini-case worksheets (Chinese economic activity,
+          EV market, hidden door-handle ban, Climate Action Tracker summary).
+        </p>
+        <div class="topics">
+          <span class="topic">Political</span><span class="topic">Economic</span>
+          <span class="topic">Social</span><span class="topic">Technological</span>
+          <span class="topic">Legal</span><span class="topic">Environmental</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="Research%20Guide%20for%20Conducting%20a%20PESTLE%20Analysis.docx" download>
+        <span class="badge docx">Guide · docx</span>
+        <h4>Research guide — PESTLE</h4>
+        <p>How to source evidence for each of the six PESTLE pillars: where to look,
+           what kind of insight each pillar produces, and how to organise findings into a matrix.</p>
+        <span class="filename">Research Guide for Conducting a PESTLE Analysis.docx</span>
+      </a>
+
+      <a class="card" href="Blank%20Pestle%20Table.docx" download>
+        <span class="badge docx">Template · docx</span>
+        <h4>Blank PESTLE template</h4>
+        <p>Empty three-column matrix (Category · Information · Synthesis) ready for your own
+           analysis — drop straight into your appendix.</p>
+        <span class="filename">Blank Pestle Table.docx</span>
+      </a>
+
+      <a class="card" href="Pestle%20Table.docx" download>
+        <span class="badge docx">Worked example · docx</span>
+        <h4>Worked PESTLE — China EV market</h4>
+        <p>A fully-filled PESTLE matrix on the Chinese EV sector: state intervention, $500 bn+ market,
+           consumer caution, technology-driven vulnerabilities, safety regulations, 2060 carbon neutrality.</p>
+        <span class="filename">Pestle Table.docx</span>
+      </a>
+
+      <a class="card" href="Pestle%20matching%20STUDENT.docx" download>
+        <span class="badge docx">Exercise · docx</span>
+        <h4>PESTLE matching exercise</h4>
+        <p>18 statements (interest-rate shifts, AI adoption, aging population, GDPR-style rules…)
+           to classify into the correct PESTLE letter.</p>
+        <span class="filename">Pestle matching STUDENT.docx</span>
+      </a>
+
+      <a class="card" href="STUDENT%20pestle%20China%20Economic%20Activity%20February%202026.docx" download>
+        <span class="badge docx">Mini-case · docx</span>
+        <h4>Case — China economic activity (Feb 2026)</h4>
+        <p>Industrial production +6.3 % YoY, retail +2.8 %, fixed-asset investment surprise.
+           Identify the dominant and negligible PESTLE factors.</p>
+        <span class="filename">STUDENT pestle China Economic Activity February 2026.docx</span>
+      </a>
+
+      <a class="card" href="STUDENT%20Pestle%20Electric%20Vehicles.docx" download>
+        <span class="badge docx">Mini-case · docx</span>
+        <h4>Case — China EV market</h4>
+        <p>US$533.4 bn projected revenue, 17.46 m units by 2030, government subsidies and
+           infrastructure — extract the PESTLE factors.</p>
+        <span class="filename">STUDENT Pestle Electric Vehicles.docx</span>
+      </a>
+
+      <a class="card" href="STUDENT%20China%20bans%20hidden%20car%20door%20handles%20over%20safety%20concerns.docx" download>
+        <span class="badge docx">Mini-case · docx</span>
+        <h4>Case — China bans hidden EV door handles</h4>
+        <p>February 2026 BBC piece. New mandatory mechanical releases from 1 Jan 2027 — analyse
+           the dominant PESTLE pressures (legal, technological, social).</p>
+        <span class="filename">STUDENT China bans hidden car door handles over safety concerns.docx</span>
+      </a>
+
+      <a class="card" href="STUDENT%20PESTLE%20Summary%20from%20Climate%20Action%20Tracker.docx" download>
+        <span class="badge docx">Mini-case · docx</span>
+        <h4>Case — Climate Action Tracker summary</h4>
+        <p>China’s carbon-neutrality target (2060), the “1+N” framework, renewables and national
+           carbon trading — which PESTLE elements dominate?</p>
+        <span class="filename">STUDENT PESTLE Summary from Climate Action Tracker.docx</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== SWOT ===================== -->
+  <section class="unit" id="swot">
+    <div class="unit-head">
+      <div>
+        <span class="unit-tag green">Framework</span>
+        <div class="date">◆ SWOT analysis</div>
+      </div>
+      <div>
+        <h2>SWOT — <em>research guide</em></h2>
+        <p class="intro">
+          Where to find evidence for Strengths, Weaknesses, Opportunities and Threats: company materials,
+          financial platforms, market research, business news, competitor analysis, academic sources,
+          institutional data, and customer / social signals.
+        </p>
+        <div class="topics">
+          <span class="topic">Strengths</span><span class="topic">Weaknesses</span>
+          <span class="topic">Opportunities</span><span class="topic">Threats</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="Research%20Guide%20for%20Conducting%20a%20SWOT%20Analysis.docx" download>
+        <span class="badge docx">Guide · docx</span>
+        <h4>Research guide — SWOT</h4>
+        <p>Internal sources (annual reports, IR, Yahoo / Google Finance) for S &amp; W;
+           industry &amp; market sources (Statista, McKinsey, Deloitte, FT, Economist) for O &amp; T.
+           Includes a six-step research process and key reminders.</p>
+        <span class="filename">Research Guide for Conducting a SWOT Analysis.docx</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL ===================== -->
+  <section class="unit" id="final">
+    <div class="unit-head">
+      <div>
+        <span class="unit-tag">Final assignment</span>
+        <div class="date">◆ End-of-course presentation</div>
+      </div>
+      <div>
+        <h2>International market analysis — <em>final presentation</em></h2>
+        <p class="intro">
+          Your consultancy has been approached by a company in your assigned industry. They are considering
+          entering (or expanding in) a country of your choice. Apply PESTLE + SWOT, then recommend
+          to the board of directors. 3–5 minutes, group delivery.
+        </p>
+        <div class="topics">
+          <span class="topic">PESTLE</span><span class="topic">SWOT</span>
+          <span class="topic">Recommendation</span><span class="topic">3–5 min</span>
+          <span class="topic">40 pts content + appendix + delivery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="card highlight" href="End%20task%20International%20Business%20Management.docx" download>
+        <span class="badge">Brief · docx</span>
+        <h4>End-of-course presentation brief</h4>
+        <p>Scenario, task overview, the two required frameworks, recommendation structure,
+           formal requirements, marking scheme (20 + 10 + 10 pts) and the industry assignment table.</p>
+        <span class="filename">End task International Business Management.docx</span>
+      </a>
+
+      <a class="card" href="Mark_Sheet_Presentation_2026_International%20International%20Business%20Management.docx" download>
+        <span class="badge docx">Mark sheet · docx</span>
+        <h4>Presentation mark sheet</h4>
+        <p>The exact grading rubric the lecturers will fill in: PESTLE (5), SWOT (5), recommendation (5),
+           Q&amp;A (5), SWOT appendix (5), PESTLE appendix (5), delivery (10) — 40 pts total.</p>
+        <span class="filename">Mark_Sheet_Presentation_2026_International International Business Management.docx</span>
+      </a>
+    </div>
+
+    <h3 style="margin:34px 0 10px;font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.01em">
+      Industry assignment table
+    </h3>
+    <div class="indtable">
+      <div class="row"><span class="n">01</span><span>Heavy plant — excavators, tractors, bulldozers</span></div>
+      <div class="row"><span class="n">02</span><span>Budget airlines</span></div>
+      <div class="row"><span class="n">03</span><span>Fast fashion</span></div>
+      <div class="row"><span class="n">04</span><span>Pharmaceuticals</span></div>
+      <div class="row"><span class="n">05</span><span>Hotel / Hospitality</span></div>
+      <div class="row"><span class="n">06</span><span>Soft drinks and beverages</span></div>
+      <div class="row"><span class="n">07</span><span>Insurance</span></div>
+      <div class="row you"><span class="n">08</span><span>Motorcycle &nbsp;·&nbsp; your assigned industry</span></div>
+      <div class="row"><span class="n">09</span><span>Construction</span></div>
+      <div class="row"><span class="n">10</span><span>Fast food</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== GROUPS ===================== -->
+  <section class="unit" id="groups">
+    <div class="unit-head">
+      <div>
+        <span class="unit-tag gold">Roster</span>
+        <div class="date">◆ Seminar groups</div>
+      </div>
+      <div>
+        <h2>Group <em>assignments</em></h2>
+        <p class="intro">Seminar groups and their assigned industries for the final presentation.</p>
+      </div>
+    </div>
+
+    <div class="group-strip">
+      <div class="group">
+        <div class="gnum">Group 01</div>
+        <div class="ind">Soft drinks &amp; beverages</div>
+        <ul>
+          <li>Vigváry Lilla Anna</li>
+          <li>Papp Linda Regina</li>
+          <li>Elijah Evans</li>
+          <li>Feng Sih Yan</li>
+          <li>Merényi Panna Boglárka</li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <div class="gnum">Group 02</div>
+        <div class="ind">Budget airlines</div>
+        <ul>
+          <li>Szabó Ákos</li>
+          <li>Hitter Maxim</li>
+          <li>Faragó Márkó</li>
+          <li>Kovács Bálint</li>
+          <li>Helenkár Kitti</li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <div class="gnum">Group 03</div>
+        <div class="ind">Fast fashion</div>
+        <ul>
+          <li>Linus Hagmann</li>
+          <li>Selim Simons</li>
+          <li>Robert Molak</li>
+          <li>Carla Baerecke</li>
+          <li>Phil van Bebber</li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <div class="gnum">Group 05</div>
+        <div class="ind">Hotel / Hospitality</div>
+        <ul>
+          <li>Ádám Viktória</li>
+          <li>Tóth Gábor</li>
+          <li>Breznovits Karola</li>
+          <li>Csup Attila Fábián</li>
+          <li>Afonso Laranjo Brandao</li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <div class="gnum">Group 06</div>
+        <div class="ind">Fast food</div>
+        <ul>
+          <li>Julia Seppänen</li>
+          <li>Laxsika Ravi</li>
+          <li>Mihály Miklós</li>
+          <li>Zeno Schild</li>
+          <li>Andrianoff Elina</li>
+          <li>González Pinela Alba</li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <div class="gnum">Group 07</div>
+        <div class="ind">Pharmaceuticals</div>
+        <ul>
+          <li>Marion Billard</li>
+          <li>Lucie Palmier</li>
+          <li>Kosztyu Milán</li>
+          <li>Erődi Ádám Tamás</li>
+          <li>Ines Moalla</li>
+          <li>Marcell Tóth</li>
+        </ul>
+      </div>
+
+      <div class="group you">
+        <div class="gnum">Group 08 · YOUR GROUP</div>
+        <div class="ind">Motorcycle</div>
+        <ul>
+          <li>Fazekas Orsi</li>
+          <li>Csup Fábián</li>
+          <li><strong>Stubán Lukács</strong></li>
+          <li>Ricz Nóra</li>
+          <li>Madi Myo Htet</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top:18px;font-size:13px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.04em">
+      Source — Seminar Group 5.docx (group roster file)
+    </p>
+  </section>
+
+  <!-- ===================== TEXTBOOK ===================== -->
+  <section class="unit" id="textbook">
+    <div class="unit-head">
+      <div>
+        <span class="unit-tag">Reference</span>
+        <div class="date">◆ Course textbook</div>
+      </div>
+      <div>
+        <h2>Course <em>textbook</em></h2>
+        <p class="intro">
+          Open-licensed textbook (Saylor Foundation, CC BY-NC-SA 3.0) covering the
+          What / Where / Why / How structure of international business.
+        </p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="International%20Business.pdf" download>
+        <span class="badge pdf">PDF · ~6 MB</span>
+        <h4>International Business — textbook</h4>
+        <p>Four sections: WHAT (defining IB, ethics, political/legal, culture);
+           WHERE (country classifications, monetary system, capital markets);
+           WHY (modes of entry, exporting, sourcing);
+           HOW (strategy &amp; entrepreneurship in a flattening world).</p>
+        <span class="filename">International Business.pdf</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap fwrap">
+    <div>
+      <h5>About this index</h5>
+      <p>A static summary page of the course materials in this repository. The slide decks, worksheets,
+         case studies, frameworks and the final presentation brief are organised seminar-by-seminar so
+         the whole semester is visible at a glance.</p>
+      <p class="sig" style="margin-top:14px">— stubán lukács, group 08</p>
+    </div>
+    <div>
+      <h5>Repository</h5>
+      <p><a href="https://github.com/stubanlukacs07-cyber/International-business">github.com/stubanlukacs07-cyber/<br>International-business</a></p>
+    </div>
+    <div>
+      <h5>Course</h5>
+      <p>International Business Management<br>BGE · Faculty of International Management &amp; Business<br>Spring 2025/26</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
